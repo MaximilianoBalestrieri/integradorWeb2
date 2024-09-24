@@ -76,10 +76,10 @@ function mostrarObjetos(objectIDs) {
 
             // Imagen principal
             const img = document.createElement('img');
-            img.src = objectData.primaryImageSmall || '/public/imagenes/museoChico.jpg';
+            img.src = objectData.primaryImageSmall || './public/imagenes/museoChico.jpg';
             img.alt = objectData.title;
             img.onerror = () => {
-              img.src = '/public/imagenes/museoChico.jpg';
+              img.src = './public/imagenes/museoChico.jpg';
             };
             card.appendChild(img);
 
