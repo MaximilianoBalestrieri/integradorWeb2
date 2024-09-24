@@ -1,18 +1,18 @@
-const express = require('express'); // npm install express
-const cors = require('cors'); // npm install cors
-const path = require('path'); // no hace falta instalar
-const translate = require('node-google-translate-skidz'); // npm install node-google-translate-skidz (librería para traducir)
+const express = require('express'); 
+const cors = require('cors'); 
+const path = require('path'); 
+const translate = require('node-google-translate-skidz'); 
 
-// configurar express
+
 const app = express();
 
-// middleware globales (middle => mitad ware => softWARE)}
-app.use(express.static(path.join(__dirname, 'public'))); // Configura en la carpeta public contenido estático(HTML, CSS, JS, imáges, audios...etc)
-app.use(express.json()); // Nos permiten mandar un BODY cuando hagamos una solicitud POST (para traducir)
-app.use(express.urlencoded({ extended: false })); //Nos permiten mandar un BODY cuando hagamos una solicitud POST (para traducir)
-app.use(cors('*')); // Configura el CORS para todos los dominios (para poder hacer andar esta app en VERCEL)
 
-// rutas
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: false })); 
+app.use(cors('*')); 
+
+
 // una ruta de tipo POST para traducir
 app.post('/traducir', async (request, response) => {
   const titulo = request.body.titulo;
@@ -70,13 +70,8 @@ app.post('/traducir', async (request, response) => {
     fechaTraducida: fechaTraducida.sentences[0].trans,
   });
 
-  // response.send(texto.toUpperCase());
-  // response.json({ traduccion: texto.toUpperCase() });
 });
 
-/* app.get('/hola', (request, response) => {
-  response.send('Hola mundo');
-}); */
 
 // poner el servidor a escuchar en el puerto 3005
 app.listen(3005, () => {

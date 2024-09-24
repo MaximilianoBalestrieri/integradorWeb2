@@ -83,7 +83,6 @@ function mostrarObjetos(objectIDs) {
             };
             card.appendChild(img);
 
-            // Período (oculto por defecto, visible al pasar el mouse)
             const period = document.createElement('p');
             period.textContent = `Fecha de creación: ${
               dataTraducida.fechaTraducida || 'Desconocido'
@@ -91,11 +90,11 @@ function mostrarObjetos(objectIDs) {
             period.style.display = 'none'; // Oculto inicialmente
 
             card.addEventListener('mouseover', () => {
-              period.style.display = 'block'; // Mostrar al pasar el mouse
+              period.style.display = 'block'; // Muestra al pasar el mouse
             });
 
             card.addEventListener('mouseout', () => {
-              period.style.display = 'none'; // Ocultar cuando el mouse salga
+              period.style.display = 'none'; // Oculta cuando el mouse salga
             });
 
             card.appendChild(period);
@@ -124,16 +123,15 @@ function mostrarObjetos(objectIDs) {
       .catch((error) => console.error('Error:', error));
   });
 
-  // Actualizar el estado de los botones de paginación
+  // Actualiza el estado de los botones de paginación
   document.getElementById('prevPage').disabled = currentPage === 1;
   document.getElementById('nextPage').disabled = currentPage * itemsPerPage >= totalItems;
 
-  // Guardar la página actual en localStorage
+  // Guarda la página actual en localStorage
   window.localStorage.setItem('currentPage', currentPage);
 
   mainButton.addEventListener('click', () => {
-    // window.localStorage.removeItem('selectedDepartmentName');
-    window.location.href = 'index.html'; // Cambia 'index.html' por la URL de la página principal
-    // window.history.back();
+  window.location.href = 'index.html'; 
+    
   });
 }

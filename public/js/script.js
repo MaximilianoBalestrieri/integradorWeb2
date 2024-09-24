@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function mostrarDetallesDepartamento(departmentId) {
   let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${clave.value}&departmentId=${departmentId}`;
 
-  // Si hay localizacion le concateno `&geoLocation=${localizacion.value}`
+  
   if (localizacion.value) {
     url = url + `&geoLocation=${localizacion.value}`;
   }
