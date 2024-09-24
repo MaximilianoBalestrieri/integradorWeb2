@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
           mostrarDetallesDepartamento(departmentId);
 
           window.localStorage.setItem('selectedDepartmentName', displayName || '');
-        } else {
-          alert('Por favor, selecciona un departamento.');
-        }
+        } 
       });
     })
     .catch((error) => console.error('Error:', error));
