@@ -1,17 +1,14 @@
-const express = require('express'); 
-const cors = require('cors'); 
-const path = require('path'); 
-const translate = require('node-google-translate-skidz'); 
-
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const translate = require('node-google-translate-skidz');
 
 const app = express();
 
-
-app.use(express.static(path.join(__dirname, 'public'))); 
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: false })); 
-app.use(cors('*')); 
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors('*'));
 
 // una ruta de tipo POST para traducir
 app.post('/traducir', async (request, response) => {
@@ -69,14 +66,10 @@ app.post('/traducir', async (request, response) => {
     culturaTraducida: culturaTraducida.sentences[0].trans,
     fechaTraducida: fechaTraducida.sentences[0].trans,
   });
-
 });
 
-
 /* poner el servidor a escuchar en el puerto 3005*/
-//app.listen(3005, () => {
-  //console.log(`Servidor corriendo en: http://localhost:${3005}`);
-  app.listen('/traducir', () => {
-  
+
+app.listen(3005, () => {
   console.log(`Servidor corriendo en: http://localhost:${3005}`);
 });

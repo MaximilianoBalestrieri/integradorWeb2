@@ -1,5 +1,7 @@
 const clave = document.getElementById('clave');
 const localizacion = document.getElementById('localizacion');
+const departments = document.getElementById('departments');
+const searchButton = document.getElementById('searchButton');
 document.addEventListener('DOMContentLoaded', () => {
   fetch('https://collectionapi.metmuseum.org/public/collection/v1/departments')
     .then((response) => response.json())
@@ -29,19 +31,33 @@ document.addEventListener('DOMContentLoaded', () => {
           mostrarDetallesDepartamento(departmentId);
 
           window.localStorage.setItem('selectedDepartmentName', displayName || '');
-        } 
+        }
       });
     })
     .catch((error) => console.error('Error:', error));
 });
 
 function mostrarDetallesDepartamento(departmentId) {
-  let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${clave.value}&departmentId=${departmentId}`;
+  let url = `https://collectionapi.metmuseum.org/public/collection/v1/search`;
 
-  
+  if (clave.value) {
+    url = url + `?q=${clave.value}`;
+  } else {
+    url = url + `?q=""`;
+  }
+
   if (localizacion.value) {
     url = url + `&geoLocation=${localizacion.value}`;
   }
+
+  if (departments.value !== 'todos') {
+    url = url + `&departmentId=${departments.value}`;
+  }
+
+  // alert(url);
+
+  searchButton.textContent = 'Cargando...';
+  searchButton.disabled = true;
 
   fetch(url)
     .then((response) => response.json())
@@ -62,5 +78,9 @@ function mostrarDetallesDepartamento(departmentId) {
         alert('No hay objetos en este departamento.');
       }
     })
-    .catch((error) => console.error('Error:', error));
+    .catch((error) => console.error('Error:', error))
+    .finally(() => {
+      searchButton.textContent = 'Buscar';
+      searchButton.disabled = false;
+    });
 }
