@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes Adicionales</title>
+    
+    <style>
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f5bb;
+    background-image: url("C:/ultimateJS/imagenes/museo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    margin-left: 7%;
+    padding: 20px;}
+
+        /* Contenedor de las cartas */
+        #imageContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Estilos para cada carta */
+        .card {
+            width: 20%;
+            height: 150px;
+            border: 1px solid #a37272;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #a37272;
+        }
+
+        /* Estilos para las imágenes */
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        /* Botón de regreso */
+        #backButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #backButton:hover {
+            background-color: #0056b3;
+        }
+
+        h3{
+            font-size: 25px;
+            background-color: rgb(248, 246, 242);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+ 
+    </style>
+</head>
+<body>
+    <h3 id="objectTitle"></h3>
+    <div id="imageContainer"></div>
+    <button id="backButton">Atrás</button>
+
+    <script>
+        // Obtener las imágenes adicionales y el título del objeto desde el localStorage
+        const additionalImages = JSON.parse(window.localStorage.getItem('additionalImages'));
+        const objectTitle = window.localStorage.getItem('objectTitle');
+
+        const imageContainer = document.getElementById('imageContainer');
+        const titleElement = document.getElementById('objectTitle');
+        const backButton = document.getElementById('backButton');
+
+        // Mostrar el título del objeto
+        titleElement.textContent = `Imágenes adicionales de: ${objectTitle}`;
+
+        // Mostrar las imágenes adicionales en formato de carta
+        if (additionalImages && additionalImages.length > 0) {
+            additionalImages.forEach(imageURL => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const img = document.createElement('img');
+                img.src = imageURL;
+                img.alt = 'Imagen adicional';
+
+                card.appendChild(img);
+                imageContainer.appendChild(card);
+            });
+        } else {
+            imageContainer.innerHTML = '<p>No hay imágenes adicionales disponibles.</p>';
+        }
+
+        // Botón para regresar a la página principal
+        backButton.addEventListener('click', () => {
+           // window.location.href = 'index.html'; // Cambia 'index.html' por la URL de la página principal
+            window.history.back(); 
+            
+});
+        
+    </script>
+</body>
+</html>

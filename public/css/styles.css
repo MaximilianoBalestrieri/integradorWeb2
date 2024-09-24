@@ -1,0 +1,190 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f5bb;
+  background-image: url('../imagenes/museo.jpg'); /* modifiqué esto  */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #333;
+  margin-left: 7%;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 240px;
+  font-weight: 500;
+  font-size: 40px;
+  color: #0a0909;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#departmentTitle {
+  background-color: #f0f3e1;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  width: fit-content;
+}
+
+#titulo-departamento {
+  background-color: #f0f3e1;
+  font-size: 20px;
+}
+#subtitulo {
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #0a0909;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: fit-content;
+}
+
+#departmentDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 20%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e7e3ec;
+  margin-top: 20px;
+}
+
+img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+label {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+select {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+#searchButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mainButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#mainButton:hover {
+  background-color: #0056b3;
+}
+
+.centro {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 800px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.centro > * {
+  margin: 0 10px;
+}
+
+#clave {
+  height: 20px;
+  border: 0px solid #000;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+footer {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}

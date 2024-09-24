@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./imagenes/museoIcono.png">
+    <title>Integrador Web II</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Museo Metropolitano de New York</h1>
+    </header>
+    <h2 id="subtitulo">Buscador de Objetos de Arte</h2>
+    <div class="centro">
+        <label for="departments">Selecciona un departamento:</label>
+        <select id="departments">
+            <option value=""></option> <!-- Selección vacía por defecto -->
+        </select>
+
+        <br><br>
+        <label for="clave">Palabra clave:</label>
+        <input type="text" id="clave" name="clave">
+        <br><br>
+
+        <label for="localizacion">Selecciona una localización:</label>
+        <select id="localizacion">
+            <option value="">Todas las localizaciones</option> <!-- Selección vacía por defecto -->
+            <option value="China">China</option>
+            <option value="Europa">Europa</option>
+            <option value="Paris">Paris</option>
+        </select>
+
+        <button id="searchButton">Buscar</button>
+    </div>
+    <script src="js/script.js"></script>
+    <footer> Realizado por Balestrieri Ramseyer maximiliano para Web II</footer>
+</body>
+
+</html>
