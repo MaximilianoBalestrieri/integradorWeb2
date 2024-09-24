@@ -39,7 +39,7 @@ function mostrarObjetos(objectIDs) {
       .then((response) => response.json())
       .then((objectData) => {
         // TRADUCCION
-        fetch('/traducir', {
+        fetch('/traducir',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function mostrarObjetos(objectIDs) {
         })
           .then((response) => response.json())
           .then((dataTraducida) => {
-            // console.log(objectData);
+            // console.log(objectData)
 
             // Crear tarjeta
             const card = document.createElement('div');
