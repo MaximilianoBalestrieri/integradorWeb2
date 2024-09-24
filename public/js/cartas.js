@@ -39,7 +39,7 @@ function mostrarObjetos(objectIDs) {
       .then((response) => response.json())
       .then((objectData) => {
         // TRADUCCION
-        fetch('http://localhost:3005/traducir', {
+        fetch('/traducir', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
